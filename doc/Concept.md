@@ -14,7 +14,7 @@
 | Можна додавати ноди                 | так                                                                                                                     |                                                                            | так                                                               |
 | GitHub stars                        | 28k                                                                                                                     | 12k                                                                        | 5k                                                                |
 | Споживання ресурсів                 | Середнє                                                                                                                 |                                                                            | Низьке                                                            |
-
+| Persistent Volumes | PersistentVolumes типу `hostPath` | | k3s підтримує persistent volume claims і Longhorn |
 ## minikube
 Minikube - інструмент, який дозволяє запустити Kubernetes кластер з однієї або кількох нод у віртуальній машині на персональному комп'ютері.
 
@@ -28,12 +28,12 @@ Minikube - інструмент, який дозволяє запустити Ku
 
 ### Cons
 - Споживання ресурсів найбільше серед конкурентів
+- Підтримка Podman в експериментальній фазі.
 
 
 ## K3d
-k3d is a lightweight wrapper to run k3s (Rancher Lab’s minimal Kubernetes distribution) in docker.
-
-k3d makes it very easy to create single- and multi-node k3s clusters in docker, e.g. for local development on Kubernetes.
+> k3d is a lightweight wrapper to run k3s (Rancher Lab’s minimal Kubernetes distribution) in docker.
+> k3d makes it very easy to create single- and multi-node k3s clusters in docker, e.g. for local development on Kubernetes.
 
 
 ### Pros
@@ -44,13 +44,25 @@ k3d makes it very easy to create single- and multi-node k3s clusters in docker, 
 
 ### Cons
 - Щоб працювати з аутентифікацією для віддалених registry, треба розібратись з налаштуваннями.
-- Підтримує тільки один рантайм -- docker.
+- Підтримка Podman в експериментальній фазі.
 
 ## kind
-TODO
+> kind is a tool for running local Kubernetes clusters using Docker container “nodes”. kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.
+
+### Pros
+- Конфігурацію кластеру можна зберігати у файлі.
+- Підтримує Podman.
+
+### Cons
+- Інструмент тільки на шляху до версії `1.0`.
+- Не завжди повна і актуальна документація.
+
 
 ## Висновки
-TODO
+Поки що не розглядаю kind. Не подобається не завжди повна і актуальна документація. Розробники самі кажуть про документацію `Though this will eternally be “In Progress”!` А також не подобається, що найбільша мажорна версія -- нульова. Хоча розробники вже на шляху до `1.0`.
+
+Рекомендую використовувати `k3d` або `minikube`. `k3d` приваблює своїм ощадливим споживанням ресурсів і можливістю зберігати конфігурацію кластеру у файлі. Але я особисто буду в подальшому використовувати `minikube` з тієї простої причини, що з `k3d` у мене не вийшло задеплоїти додаток [den-vasyliev/go-demo-app](https://github.com/den-vasyliev/go-demo-app), не стартували `ambassador` і один з подів `nats`, а з `minikube` усе спрацювало одразу з першого разу.
+
 
 ## Демонстрація
 
