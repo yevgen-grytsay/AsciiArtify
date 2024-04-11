@@ -2,19 +2,20 @@
 
 |                                     | minikube                                                                                                                | kind                                                                       | k3d                                                               |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Підтримка ОС                        | Linux, macOS, Windows                                                                                                   | Linux, macOS and Windows                                                   | Linux, macOS, Windows                                             |
-| Підтримка архітектур                | x86-64, ARM64, ARMv7, ppc64, S390x                                                                                      | x86_64, ARM64                                                              | x86_64, ARM                                                       |
-| Стабільна версія                    | так, v1.32.0                                                                                                            | нижче першої версії, v0.22.0                                               | так, v5.6.2                                                       |
-| GiHub Actions                       | так, https://github.com/minikube-ci/examples                                                                            | так, https://github.com/kind-ci/examples                                   | так, https://github.com/nolar/setup-k3d-k3s                       |
-| Podman Driver                       | experimental support                                                                                                    | так                                                                         | experimental support                                              |
-| Документація                        | ок, досить детальна                                                                                                     | не завжди повна і актуальна, є список посилань на зовнішні ресурси https://kind.sigs.k8s.io/docs/user/resources/ | ок                                                                |
-| Supported Runtimes                  | containerd, cri-o, docker                                                                                               | docker                                                                     | containerd (default), можливо docker (є документація, як встановити k3s з docker runtime, але невідомо, чи можна це зробити в k3d)                                                            |
-| Multi-node Cluster support          | так                                                                                                                     | так                                                                        | так                                                               |
-| Робота з віддаленими реєстрами      | Плагін, який дозволяє налаштувати роботу з GCR/ECR/ACR/Docker                                                           |                                                                            | Доступ до реєстрів налаштовується через конфіг-файл, а інструкцію, як це зробити для конкретного реєстру, треба ще пошукати в інтернеті                                                                  |
-| Можна додавати ноди                 | так                                                                                                                     |                                                                            | так                                                               |
-| GitHub stars                        | 28k                                                                                                                     | 12k                                                                        | 5k                                                                |
-| Споживання ресурсів                 | Середнє                                                                                                                 |                                                                            | Низьке                                                            |
+| Підтримка ОС | Linux, macOS, Windows | Linux, macOS, Windows | Linux, macOS, Windows |
+| Підтримка архітектур | x86-64, ARM64, ARMv7, ppc64, S390x | x86_64, ARM64 | x86_64, ARM |
+| Мажорна версія | 1 | 0 | 5 |
+| GiHub Actions | так, https://github.com/minikube-ci/examples | так, https://github.com/kind-ci/examples | так, https://github.com/nolar/setup-k3d-k3s |
+| Podman Driver | experimental support | так | experimental support |
+| Документація | ок, досить детальна | не завжди повна і актуальна, є список посилань на зовнішні ресурси https://kind.sigs.k8s.io/docs/user/resources/ | ок                                                                |
+| Supported Runtimes | containerd, cri-o, docker | docker | containerd (default), можливо docker (є документація, як встановити k3s з docker runtime, але невідомо, чи можна це зробити в k3d) |
+| Multi-node Cluster support | так | так | так |
+| Робота з віддаленими реєстрами | Плагін, який дозволяє налаштувати роботу з GCR/ECR/ACR/Docker | ? | Доступ до реєстрів налаштовується через конфіг-файл, а інструкцію, як це зробити для конкретного реєстру, треба ще пошукати в інтернеті |
+| Можна додавати ноди до запущеного кластеру | так | ? | так |
+| GitHub stars | 28k | 12k | 5k |
+| Споживання ресурсів | Середнє | ? | Низьке |
 | Persistent Volumes | PersistentVolumes типу `hostPath` | | k3s підтримує persistent volume claims і Longhorn |
+
 ## minikube
 Minikube - інструмент, який дозволяє запустити Kubernetes кластер з однієї або кількох нод у віртуальній машині на персональному комп'ютері.
 
